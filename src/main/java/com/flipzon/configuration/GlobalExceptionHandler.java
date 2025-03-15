@@ -99,7 +99,7 @@ public class GlobalExceptionHandler {
 		return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), exception.getMessage());
 	}
 	
-	//For All/Any Exception which is not handled by above
+	//If the above exception is not able to handle then Runtime will handled
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler({RuntimeException.class,Exception.class})
 	public ErrorResponse handleAllException(Exception exception) {
