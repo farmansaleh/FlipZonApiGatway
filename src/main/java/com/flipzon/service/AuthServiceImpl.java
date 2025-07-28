@@ -73,8 +73,8 @@ public class AuthServiceImpl implements AuthService {
 	
 	@Override
 	public ApiResponse<AuthResponse> login(AuthRequest authReq) {
-		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authReq.getMobileNo(), authReq.getPassword()));
-		User user = userRepository.findByMobileNo(authReq.getMobileNo()).orElseThrow(() -> new UsernameNotFoundException("User not found!"));
+		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authReq.getUsername(), authReq.getPassword()));
+		User user = userRepository.findByMobileNo(authReq.getUsername()).orElseThrow(() -> new UsernameNotFoundException("User not found!"));
 		return new ApiResponse<AuthResponse>(200, "Login successfully!", new AuthResponse(jwtService.generateToken(UserDetailsImpl.build(user))));
 	}
 	

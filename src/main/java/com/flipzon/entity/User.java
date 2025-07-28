@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.flipzon.dto.CurrentUserDtl;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -16,11 +17,12 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 
 @Entity
-@Table
+@Table(name = "users")
 public class User extends CurrentUserDtl {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "user_id")
 	private long id;
 	
 	@NotEmpty

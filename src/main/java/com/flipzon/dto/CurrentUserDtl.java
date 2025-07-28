@@ -19,8 +19,8 @@ public class CurrentUserDtl {
 	
 	@NotNull
 	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss")
-	@Column(name = "created_date" ,insertable = true, updatable = false)
-	private Timestamp createdDate;
+	@Column(name = "created_at" ,insertable = true, updatable = false)
+	private Timestamp createdAt;
 	
 	@NotNull
 	private int status;
@@ -28,7 +28,7 @@ public class CurrentUserDtl {
 	@PrePersist
 	public void onSubmit() {
 		this.createdBy = FlipZonUtility.getCurrentUserId();
-		this.createdDate = new Timestamp(System.currentTimeMillis());
+		this.createdAt= new Timestamp(System.currentTimeMillis());
 		this.status = Constant.ACTIVE;
 	}
 
@@ -41,11 +41,11 @@ public class CurrentUserDtl {
 	}
 
 	public Timestamp getCreatedDate() {
-		return createdDate;
+		return createdAt;
 	}
 
 	public void setCreatedDate(Timestamp createdDate) {
-		this.createdDate = createdDate;
+		this.createdAt = createdDate;
 	}
 
 	public int getStatus() {
