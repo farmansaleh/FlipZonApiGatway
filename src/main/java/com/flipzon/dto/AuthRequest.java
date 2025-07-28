@@ -2,14 +2,14 @@ package com.flipzon.dto;
 
 public class AuthRequest {
 	
-	private String mobileNo;
+	private String username;
 	private String password;
 	
-	public String getMobileNo() {
-		return mobileNo;
+	public String getUsername() {
+		return username;
 	}
-	public void setMobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -17,5 +17,4 @@ public class AuthRequest {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 }

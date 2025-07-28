@@ -31,7 +31,7 @@ public class SecurityConfig {
 		// for jdk latest version with lamda function
 		http.csrf(csrf -> csrf.disable()).cors(cors -> cors.disable())
 			.authorizeHttpRequests(auth -> auth
-				.requestMatchers("/users/register","/users/login").permitAll()
+				.requestMatchers("/auth/**").permitAll()
 				.anyRequest().authenticated())
 			.exceptionHandling(ex -> ex.authenticationEntryPoint(authEntryPoint))
 			.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
